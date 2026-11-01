@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check password strength and generate a secure password locally with this educational demo.">
+  <title>Password Security Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-icon">◆</span>
+      <span>Secure<span class="brand-accent">Check</span></span>
+    </a>
+    <span class="top-label"><span class="status-dot"></span> PASSWORD TOOL</span>
+  </header>
+
+  <main class="page-wrap">
+    <section class="intro">
+      <div class="eyebrow"><span></span> YOUR DIGITAL SAFETY STARTS HERE</div>
+      <h1>Build a stronger<br><span>password.</span></h1>
+      <p class="intro-copy">Check your password strength, understand what makes it secure, and generate a stronger alternative.</p>
+    </section>
+
+    <section class="checker-card" aria-labelledby="checker-title">
+      <div class="card-heading">
+        <div>
+          <p class="section-kicker">PASSWORD ANALYZER</p>
+          <h2 id="checker-title">Check your password</h2>
+        </div>
+        <div class="shield-icon" aria-hidden="true">⬡</div>
+      </div>
+
+      <label class="field-label" for="passwordInput">Enter password</label>
+      <div class="password-field">
+        <input id="passwordInput" type="password" placeholder="Type a password to test..." autocomplete="new-password" maxlength="256">
+        <button id="togglePassword" class="text-button" type="button" aria-label="Show password">SHOW</button>
+      </div>
+      <p class="privacy-note"><span>●</span> Demo note: passwords are checked by this app and are not saved.</p>
+
+      <div class="strength-header">
+        <span>STRENGTH LEVEL</span>
+        <strong id="strengthText" class="strength-empty">Not rated</strong>
+      </div>
+      <div class="meter" role="progressbar" aria-label="Password strength" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="strengthMeter">
+        <div id="strengthFill" class="meter-fill"></div>
+      </div>
+
+      <div class="checks-grid" id="checksList">
+        <div class="check-item"><span class="check-mark">○</span> At least 12 characters</div>
+        <div class="check-item"><span class="check-mark">○</span> Uppercase letter (A-Z)</div>
+        <div class="check-item"><span class="check-mark">○</span> Lowercase letter (a-z)</div>
+        <div class="check-item"><span class="check-mark">○</span> Number (0-9)</div>
+        <div class="check-item"><span class="check-mark">○</span> Special character</div>
+      </div>
+
+      <div class="suggestion-box">
+        <div class="suggestion-icon">✦</div>
+        <div>
+          <h3>Security suggestions</h3>
+          <ul id="suggestionsList"><li>Enter a password to see suggestions.</li></ul>
+        </div>
+      </div>
+
+      <div class="divider"><span>OR</span></div>
+
+      <div class="generator-heading">
+        <div>
+          <h3>Generate a password</h3>
+          <p>Create a random password for a new account.</p>
+        </div>
+        <label class="length-control" for="lengthInput">
+          <span>Length</span>
+          <input id="lengthInput" type="number" min="8" max="64" value="16">
+        </label>
+      </div>
+      <div class="generated-row">
+        <input id="generatedPassword" type="text" placeholder="Your generated password appears here" readonly>
+        <button id="copyButton" class="copy-button" type="button">COPY</button>
+      </div>
+      <button id="generateButton" class="primary-button" type="button">✧ Generate secure password</button>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="tips">
+      <h2>Good password habits</h2>
+      <div class="tips-grid">
+        <article><span>01</span><h3>Make it unique</h3><p>Use a different password for every account.</p></article>
+        <article><span>02</span><h3>Go longer</h3><p>Long passphrases are generally harder to guess.</p></article>
+        <article><span>03</span><h3>Use a manager</h3><p>A trusted password manager can help you store unique passwords.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>Built for learning · Password Security Checker</footer>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
